@@ -138,5 +138,9 @@ class EmptyState {
             field = value
         }
 
+    var isVisible: Boolean = true
+    var actionHandler: (() -> Unit)? = null
+
     // endregion
+
 }
