@@ -46,5 +46,22 @@ class EmptyState {
             field = value
         }
 
+    var labelButton: String? = null
+        set(value) {
+            labelButtonRes?.let {
+                labelButtonRes = null
+            }
+            field = value
+        }
+
+    @StringRes
+    var labelButtonRes: Int? = null
+        set(value) {
+            labelButton?.let {
+                labelButton = null
+            }
+            field = value
+        }
+    
     // endregion
 }
