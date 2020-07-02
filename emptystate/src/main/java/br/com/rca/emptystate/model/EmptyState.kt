@@ -8,11 +8,29 @@ import androidx.annotation.StringRes
 /**
  * Created by Rafael C. Almeida on 2020-04-07.
  */
-class EmptyState {
+class EmptyState(
+    title: String? = null,
+    @StringRes titleRes: Int? = null,
+    message: String? = null,
+    @StringRes messageRes: Int? = null,
+    labelButton: String? = null,
+    @StringRes labelButtonRes: Int? = null,
+    @DrawableRes var imageRes: Int? = null,
+    @ColorRes imageColorRes: Int? = null,
+    @ColorInt imageColor: Int? = null,
+    @ColorRes labelButtonColorRes: Int? = null,
+    @ColorInt labelButtonColor: Int? = null,
+    @ColorRes titleColorRes: Int? = null,
+    @ColorInt titleColor: Int? = null,
+    @ColorRes messageColorRes: Int? = null,
+    @ColorInt messageColor: Int? = null,
+    var isVisible: Boolean = true,
+    var actionHandler: (() -> Unit)? = null
+) {
 
     // region Public Variables
 
-    var title: String? = null
+    var title: String? = title
         set(value) {
             titleRes?.let {
                 titleRes = null
@@ -21,7 +39,7 @@ class EmptyState {
         }
 
     @StringRes
-    var titleRes: Int? = null
+    var titleRes: Int? = titleRes
         set(value) {
             title?.let {
                 title = null
@@ -29,7 +47,7 @@ class EmptyState {
             field = value
         }
 
-    var message: String? = null
+    var message: String? = message
         set(value) {
             messageRes?.let {
                 messageRes = null
@@ -38,7 +56,7 @@ class EmptyState {
         }
 
     @StringRes
-    var messageRes: Int? = null
+    var messageRes: Int? = messageRes
         set(value) {
             message?.let {
                 message = null
@@ -46,7 +64,7 @@ class EmptyState {
             field = value
         }
 
-    var labelButton: String? = null
+    var labelButton: String? = labelButton
         set(value) {
             labelButtonRes?.let {
                 labelButtonRes = null
@@ -55,7 +73,7 @@ class EmptyState {
         }
 
     @StringRes
-    var labelButtonRes: Int? = null
+    var labelButtonRes: Int? = labelButtonRes
         set(value) {
             labelButton?.let {
                 labelButton = null
@@ -63,11 +81,8 @@ class EmptyState {
             field = value
         }
 
-    @DrawableRes
-    var imageRes: Int? = null
-
     @ColorRes
-    var imageColorRes: Int? = null
+    var imageColorRes: Int? = imageColorRes
         set(value) {
             imageColor?.let {
                 imageColor = null
@@ -76,7 +91,7 @@ class EmptyState {
         }
 
     @ColorInt
-    var imageColor: Int? = null
+    var imageColor: Int? = imageColor
         set(value) {
             imageColorRes?.let {
                 imageColorRes = null
@@ -85,7 +100,7 @@ class EmptyState {
         }
 
     @ColorRes
-    var labelButtonColorRes: Int? = null
+    var labelButtonColorRes: Int? = labelButtonColorRes
         set(value) {
             labelButtonColor?.let {
                 labelButtonColor = null
@@ -94,7 +109,7 @@ class EmptyState {
         }
 
     @ColorInt
-    var labelButtonColor: Int? = null
+    var labelButtonColor: Int? = labelButtonColor
         set(value) {
             labelButtonColorRes?.let {
                 labelButtonColorRes = null
@@ -103,7 +118,7 @@ class EmptyState {
         }
 
     @ColorRes
-    var titleColorRes: Int? = null
+    var titleColorRes: Int? = titleColorRes
         set(value) {
             titleColor?.let {
                 titleColor = null
@@ -112,7 +127,7 @@ class EmptyState {
         }
 
     @ColorInt
-    var titleColor: Int? = null
+    var titleColor: Int? = titleColor
         set(value) {
             titleColorRes?.let {
                 titleColorRes = null
@@ -121,7 +136,7 @@ class EmptyState {
         }
 
     @ColorRes
-    var messageColorRes: Int? = null
+    var messageColorRes: Int? = messageColorRes
         set(value) {
             messageColor?.let {
                 messageColor = null
@@ -130,7 +145,7 @@ class EmptyState {
         }
 
     @ColorInt
-    var messageColor: Int? = null
+    var messageColor: Int? = messageColor
         set(value) {
             messageColorRes?.let {
                 messageColorRes = null
@@ -138,9 +153,5 @@ class EmptyState {
             field = value
         }
 
-    var isVisible: Boolean = true
-    var actionHandler: (() -> Unit)? = null
-
     // endregion
-
 }
