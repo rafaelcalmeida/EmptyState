@@ -108,7 +108,10 @@ override fun onCreate(savedInstanceState: Bundle?) {
 | fun reset() | Reinicia a EmptyView ao seu estado inicial |
 
 ## Contribuição
-Os pull requests são bem-vindos e incentivados. Se você encontrar algum erro, por favor, registre uma [issue](https://github.com/rafaelcalmeida/EmptyState/issues)
+Pull requests com cobertura de testes são bem-vindos e incentivados.
+
+## Bugs
+Se você encontrar algum erro, por favor, registre uma [issue](https://github.com/rafaelcalmeida/EmptyState/issues).
 
 ## ProGuard
 Não necessita de nenhuma configuração.
