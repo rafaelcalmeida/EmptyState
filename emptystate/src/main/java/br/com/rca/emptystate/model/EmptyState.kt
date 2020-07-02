@@ -120,5 +120,23 @@ class EmptyState {
             field = value
         }
 
+    @ColorRes
+    var messageColorRes: Int? = null
+        set(value) {
+            messageColor?.let {
+                messageColor = null
+            }
+            field = value
+        }
+
+    @ColorInt
+    var messageColor: Int? = null
+        set(value) {
+            messageColorRes?.let {
+                messageColorRes = null
+            }
+            field = value
+        }
+
     // endregion
 }
