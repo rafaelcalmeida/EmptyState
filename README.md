@@ -21,7 +21,7 @@ allprojects {
 
 ```Gradle
 dependencies {
-    compile 'adicionar aqui'
+    implementation 'com.github.rafaelcalmeida:emptystate:1.0'
 }
 ```
 
