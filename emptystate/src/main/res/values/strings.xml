@@ -1,0 +1,5 @@
+<resources>
+    <string name="lorem_ipsum_short">Lorem ipsum dolor sit amet</string>
+    <string name="lorem_ipsum_medium">Lorem ipsum dolor sit amet, nam ne causae meliore comprehensam, ius in vivendo ponderum.</string>
+    <string name="tentar_novamente">Tentar novamente</string>
+</resources>
