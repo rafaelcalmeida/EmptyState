@@ -84,5 +84,23 @@ class EmptyState {
             field = value
         }
 
+    @ColorRes
+    var labelButtonColorRes: Int? = null
+        set(value) {
+            labelButtonColor?.let {
+                labelButtonColor = null
+            }
+            field = value
+        }
+
+    @ColorInt
+    var labelButtonColor: Int? = null
+        set(value) {
+            labelButtonColorRes?.let {
+                labelButtonColorRes = null
+            }
+            field = value
+        }
+
     // endregion
 }
