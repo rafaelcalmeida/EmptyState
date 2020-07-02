@@ -1,5 +1,8 @@
 package br.com.rca.emptystate.model
 
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 /**
@@ -25,6 +28,23 @@ class EmptyState {
             }
             field = value
         }
-    
+
+    var message: String? = null
+        set(value) {
+            messageRes?.let {
+                messageRes = null
+            }
+            field = value
+        }
+
+    @StringRes
+    var messageRes: Int? = null
+        set(value) {
+            message?.let {
+                message = null
+            }
+            field = value
+        }
+
     // endregion
 }
