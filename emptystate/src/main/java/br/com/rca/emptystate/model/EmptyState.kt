@@ -62,6 +62,27 @@ class EmptyState {
             }
             field = value
         }
-    
+
+    @DrawableRes
+    var imageRes: Int? = null
+
+    @ColorRes
+    var imageColorRes: Int? = null
+        set(value) {
+            imageColor?.let {
+                imageColor = null
+            }
+            field = value
+        }
+
+    @ColorInt
+    var imageColor: Int? = null
+        set(value) {
+            imageColorRes?.let {
+                imageColorRes = null
+            }
+            field = value
+        }
+
     // endregion
 }
