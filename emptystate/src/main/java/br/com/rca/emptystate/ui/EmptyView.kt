@@ -27,6 +27,13 @@ class EmptyView : LinearLayout {
             titleTextView?.isVisible = field?.isNotEmpty() ?: false
         }
 
+    var message: String? = null
+        set(value) {
+            field = value
+            messageTextView?.text = field
+            messageTextView?.isVisible = field?.isNotEmpty() ?: false
+        }
+
     // endregion
 
     // region Private Variables
@@ -61,6 +68,10 @@ class EmptyView : LinearLayout {
 
     fun setTitleRes(@StringRes resId: Int) {
         title = context.getString(resId)
+    }
+
+    fun setMessageRes(@StringRes resId: Int) {
+        message = context.getString(resId)
     }
 
     // endregion
