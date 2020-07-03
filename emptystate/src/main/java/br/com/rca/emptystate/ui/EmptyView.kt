@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View.OnClickListener
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import br.com.rca.emptystate.R
 import kotlinx.android.synthetic.main.empty_view.view.*
@@ -40,6 +42,17 @@ class EmptyView : LinearLayout {
             field = value
             actionButton?.text = field
             actionButton?.isVisible = field?.isNotEmpty() ?: false
+        }
+
+    @ColorInt
+    var imageColor: Int? = null
+        set(value) {
+            field = value
+            field?.let {
+                imageView?.setColorFilter(it)
+            } ?: run {
+                imageView?.colorFilter = null
+            }
         }
 
     // endregion
@@ -94,6 +107,10 @@ class EmptyView : LinearLayout {
             imageView?.setImageDrawable(null)
             imageView?.visibility = GONE
         }
+    }
+
+    fun setImageColorRes(@ColorRes resId: Int?) {
+        imageColor = resId?.let { ContextCompat.getColor(context, it) }
     }
 
     // endregion
