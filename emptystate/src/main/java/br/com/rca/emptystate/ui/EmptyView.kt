@@ -12,6 +12,7 @@ import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import br.com.rca.emptystate.R
+import br.com.rca.emptystate.model.EmptyState
 import kotlinx.android.synthetic.main.empty_view.view.*
 
 /**
@@ -22,6 +23,11 @@ class EmptyView : LinearLayout {
     // region Public Variables
 
     var actionHandler: (() -> Unit)? = null
+
+    var emptyState: EmptyState? = null
+        set(value) {
+            field = value
+        }
 
     var title: String? = null
         set(value) {
@@ -150,6 +156,16 @@ class EmptyView : LinearLayout {
 
     fun setLabelButtonColorRes(@ColorRes resId: Int?) {
         labelButtonColor = resId?.let { ContextCompat.getColor(context, it) }
+    }
+
+    fun reset() {
+        emptyState = null
+        titleTextView?.text = ""
+        messageTextView?.text = ""
+        actionButton?.text = ""
+        actionButton?.visibility = VISIBLE
+        imageView?.setImageDrawable(null)
+        imageView?.visibility = VISIBLE
     }
 
     // endregion
