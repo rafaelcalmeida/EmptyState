@@ -73,6 +73,15 @@ class EmptyView : LinearLayout {
             }
         }
 
+    @ColorInt
+    var labelButtonColor: Int? = null
+        set(value) {
+            field = value
+            field?.let {
+                actionButton.setTextColor(it)
+            }
+        }
+
     // endregion
 
     // region Private Variables
@@ -137,6 +146,10 @@ class EmptyView : LinearLayout {
 
     fun setMessageColorRes(@ColorRes resId: Int?) {
         messageColor = resId?.let { ContextCompat.getColor(context, it) }
+    }
+
+    fun setLabelButtonColorRes(@ColorRes resId: Int?) {
+        labelButtonColor = resId?.let { ContextCompat.getColor(context, it) }
     }
 
     // endregion
