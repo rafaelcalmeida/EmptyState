@@ -180,6 +180,59 @@ class EmptyViewEmptyStateTest {
         assertEquals(VISIBLE, emptyView?.test?.messageTextView?.visibility)
     }
 
+    @Test
+    fun testeLabelButtonValorNull() {
+        emptyState?.labelButton = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertNull(emptyView?.labelButton)
+        assertEquals("", emptyView?.test?.actionButton?.text)
+        assertEquals(GONE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeLabelButtonValorVazio() {
+        emptyState?.labelButton = ""
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals("", emptyView?.labelButton)
+        assertEquals("", emptyView?.test?.actionButton?.text)
+        assertEquals(GONE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeLabelButtonConfiguradoCorretamente() {
+        val label = "Label teste"
+        emptyState?.labelButton = label
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(label, emptyView?.labelButton)
+        assertEquals(label, emptyView?.test?.actionButton?.text)
+        assertEquals(VISIBLE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeLabelButtonResValorNull() {
+        emptyState?.labelButtonRes = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertNull(emptyView?.labelButton)
+        assertEquals("", emptyView?.test?.actionButton?.text)
+        assertEquals(GONE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeLabelButtonResConfiguradoCorretamente() {
+        val labelRes = R.string.lorem_ipsum_medium
+        emptyState?.labelButtonRes = labelRes
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        val label = context?.getString(labelRes)
+        assertEquals(label, emptyView?.labelButton)
+        assertEquals(label, emptyView?.test?.actionButton?.text)
+        assertEquals(VISIBLE, emptyView?.test?.actionButton?.visibility)
+    }
+
     // endregion
 
     // region Private Methods
