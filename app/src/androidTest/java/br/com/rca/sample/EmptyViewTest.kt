@@ -192,7 +192,63 @@ class EmptyViewTest {
         assertEquals(message, emptyView?.test?.messageTextView?.text)
         assertEquals(VISIBLE, emptyView?.test?.messageTextView?.visibility)
     }
-    
+
+    @Test
+    fun testeLabelButtonValorNull() {
+        emptyView?.test?.setupLabelButton(null)
+
+        assertNull(emptyView?.labelButton)
+        assertEquals("", emptyView?.test?.actionButton?.text)
+        assertEquals(GONE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeLabelButtonValorVazio() {
+        emptyView?.test?.setupLabelButton("")
+
+        assertEquals("", emptyView?.labelButton)
+        assertEquals("", emptyView?.test?.actionButton?.text)
+        assertEquals(GONE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeValorCorrespondeAoConfiguradoNaLabelButton() {
+        val label = "Valor configurado"
+        emptyView?.test?.setupLabelButton(label)
+
+        assertEquals(label, emptyView?.labelButton)
+        assertEquals(label, emptyView?.test?.actionButton?.text)
+        assertEquals(VISIBLE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeValorCorrespondeAoConfiguradoNaLabelButtonRes() {
+        val labelRes = R.string.app_name
+        emptyView?.test?.setupLabelButtonRes(labelRes)
+
+        val message = context?.getString(labelRes)
+        assertEquals(message, emptyView?.labelButton)
+        assertEquals(message, emptyView?.test?.actionButton?.text)
+        assertEquals(VISIBLE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeLabelButtonResAoSerConfiguradoDeveAlterarValorLabelButton() {
+        var label = "Valor inicial"
+        emptyView?.test?.setupLabelButton(label)
+
+        assertEquals(label, emptyView?.labelButton)
+        assertEquals(label, emptyView?.test?.actionButton?.text)
+        assertEquals(VISIBLE, emptyView?.test?.actionButton?.visibility)
+
+        label = context?.getString(R.string.app_name) ?: ""
+        emptyView?.test?.setupLabelButtonRes(R.string.app_name)
+
+        assertEquals(label, emptyView?.labelButton)
+        assertEquals(label, emptyView?.test?.actionButton?.text)
+        assertEquals(VISIBLE, emptyView?.test?.actionButton?.visibility)
+    }
+
     // endregion
 
     // region Private Methods
