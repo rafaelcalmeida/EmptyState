@@ -455,6 +455,33 @@ class EmptyViewTest {
         assertTrue(actionCalled)
     }
 
+    @Test
+    fun testeEmptyViewVoltaAoEstadoInicialAoChamarReset() {
+        emptyView?.test?.setupTitle("Title")
+        emptyView?.test?.setupTitleRes(R.string.lorem_ipsum_short)
+        emptyView?.test?.setupTitleColor(Color.RED)
+        emptyView?.test?.setupTitleColorRes(android.R.color.holo_red_dark)
+
+        emptyView?.test?.setupMessage("Message")
+        emptyView?.test?.setupMessageRes(R.string.lorem_ipsum_medium)
+        emptyView?.test?.setupMessageColor(Color.RED)
+        emptyView?.test?.setupMessageColorRes(android.R.color.holo_red_dark)
+
+        emptyView?.test?.setupImageRes(R.drawable.ic_search)
+        emptyView?.test?.setupImageColor(Color.GREEN)
+        emptyView?.test?.setupImageColorRes(R.color.colorPrimary)
+
+        emptyView?.test?.setupLabelButton("Button")
+        emptyView?.test?.setupLabelButtonRes(R.string.lorem_ipsum_short)
+        emptyView?.test?.setupLabelButtonColor(Color.RED)
+        emptyView?.test?.setupLabelButtonColorRes(android.R.color.holo_red_dark)
+        emptyView?.actionHandler = {}
+
+        emptyView?.test?.reset()
+
+        assertEstadoInicialEmptyView()
+    }
+
     // endregion
 
     // region Private Methods
