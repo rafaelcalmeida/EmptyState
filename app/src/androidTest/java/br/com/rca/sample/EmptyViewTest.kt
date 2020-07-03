@@ -445,6 +445,16 @@ class EmptyViewTest {
         )
     }
 
+    @Test
+    fun testeActionHandlerEChamadoAoClicarNoBotao() {
+        emptyView?.actionHandler = {
+            actionCalled = true
+        }
+
+        emptyView?.test?.actionButtonCallOnClick()
+        assertTrue(actionCalled)
+    }
+
     // endregion
 
     // region Private Methods
