@@ -406,6 +406,45 @@ class EmptyViewTest {
         )
     }
 
+    @Test
+    fun testeLabelButtonColorConfiguradoValorNull() {
+        val color = emptyView?.test?.actionButton?.currentTextColor
+        emptyView?.test?.setupLabelButton("Label Button")
+        emptyView?.test?.setupLabelButtonColor(null)
+
+        assertEquals(color, emptyView?.test?.actionButton?.currentTextColor)
+    }
+
+    @Test
+    fun testeLabelButtonColorConfiguradaCorretamente() {
+        val color = Color.GREEN
+        emptyView?.test?.setupLabelButton("Label Button")
+        emptyView?.test?.setupLabelButtonColor(color)
+
+        assertEquals(color, emptyView?.test?.actionButton?.currentTextColor)
+    }
+
+    @Test
+    fun testeLabelButtonColorResConfiguradoValorNull() {
+        val color = emptyView?.test?.actionButton?.currentTextColor
+        emptyView?.test?.setupLabelButton("Label Button")
+        emptyView?.test?.setupLabelButtonColorRes(null)
+
+        assertEquals(color, emptyView?.test?.actionButton?.currentTextColor)
+    }
+
+    @Test
+    fun testeLabelButtonColorResConfiguradaCorretamente() {
+        val colorRes = android.R.color.holo_red_dark
+        emptyView?.test?.setupLabelButton("Label Button")
+        emptyView?.test?.setupLabelButtonColorRes(colorRes)
+
+        assertEquals(
+            ContextCompat.getColor(context!!, colorRes),
+            emptyView?.test?.actionButton?.currentTextColor
+        )
+    }
+
     // endregion
 
     // region Private Methods
