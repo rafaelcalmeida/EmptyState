@@ -183,5 +183,13 @@ class EmptyView : LinearLayout {
         actionButton?.setOnClickListener(actionOnClickListener)
     }
 
+    private fun setupTitle(emptyState: EmptyState) {
+        emptyState.titleRes?.let {
+            setTitleRes(it)
+        } ?: run {
+            title = emptyState.title
+        }
+    }
+
     // endregion
 }
