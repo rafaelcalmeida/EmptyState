@@ -8,7 +8,6 @@ import android.widget.LinearLayout
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import br.com.rca.emptystate.R
-import br.com.rca.emptystate.model.EmptyState
 import kotlinx.android.synthetic.main.empty_view.view.*
 
 /**
@@ -32,6 +31,13 @@ class EmptyView : LinearLayout {
             field = value
             messageTextView?.text = field
             messageTextView?.isVisible = field?.isNotEmpty() ?: false
+        }
+
+    var labelButton: String? = null
+        set(value) {
+            field = value
+            actionButton?.text = field
+            actionButton?.isVisible = field?.isNotEmpty() ?: false
         }
 
     // endregion
@@ -74,6 +80,10 @@ class EmptyView : LinearLayout {
         message = context.getString(resId)
     }
 
+    fun setLabelButtonRes(@StringRes resId: Int) {
+        labelButton = context.getString(resId)
+    }
+
     // endregion
 
     // region Private Methods
@@ -87,14 +97,6 @@ class EmptyView : LinearLayout {
 
     private fun setupListeners() {
         actionButton?.setOnClickListener(actionOnClickListener)
-    }
-
-    private fun setupTitle(emptyState: EmptyState) {
-        emptyState.titleRes?.let {
-            setTitleRes(it)
-        } ?: run {
-            title = emptyState.title
-        }
     }
 
     // endregion
