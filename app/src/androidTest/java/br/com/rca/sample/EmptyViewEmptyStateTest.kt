@@ -367,6 +367,100 @@ class EmptyViewEmptyStateTest {
         )
     }
 
+    @Test
+    fun testeMessageColorConfiguradoValorNull() {
+        val color = emptyView?.test?.messageTextView?.currentTextColor
+
+        emptyState?.message = "Message"
+        emptyState?.messageColor = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.messageTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeMessageColorConfiguradaCorretamente() {
+        val color = Color.GREEN
+
+        emptyState?.message = "Message"
+        emptyState?.messageColor = color
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.messageTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeMessageColorResConfiguradoValorNull() {
+        val color = emptyView?.test?.messageTextView?.currentTextColor
+
+        emptyState?.message = "Message"
+        emptyState?.messageColorRes = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.messageTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeMessageColorResConfiguradaCorretamente() {
+        val colorRes = android.R.color.holo_red_dark
+
+        emptyState?.message = "Message"
+        emptyState?.messageColorRes = colorRes
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(
+            ContextCompat.getColor(context!!, colorRes),
+            emptyView?.test?.messageTextView?.currentTextColor
+        )
+    }
+
+    @Test
+    fun testeLabelButtonColorConfiguradoValorNull() {
+        val color = emptyView?.test?.actionButton?.currentTextColor
+
+        emptyState?.labelButton = "Label Button"
+        emptyState?.labelButtonColor = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.actionButton?.currentTextColor)
+    }
+
+    @Test
+    fun testeLabelButtonColorConfiguradaCorretamente() {
+        val color = Color.GREEN
+
+        emptyState?.labelButton = "Label Button"
+        emptyState?.labelButtonColor = color
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.actionButton?.currentTextColor)
+    }
+
+    @Test
+    fun testeLabelButtonColorResConfiguradoValorNull() {
+        val color = emptyView?.test?.actionButton?.currentTextColor
+
+        emptyState?.labelButton = "Label Button"
+        emptyState?.labelButtonColor = color
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.actionButton?.currentTextColor)
+    }
+
+    @Test
+    fun testeLabelButtonColorResConfiguradaCorretamente() {
+        val colorRes = android.R.color.holo_red_dark
+
+        emptyState?.labelButton = "Label Button"
+        emptyState?.labelButtonColorRes = colorRes
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(
+            ContextCompat.getColor(context!!, colorRes),
+            emptyView?.test?.actionButton?.currentTextColor
+        )
+    }
+
     // endregion
 
     // region Private Methods
