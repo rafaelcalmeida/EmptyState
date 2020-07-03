@@ -5,10 +5,12 @@ import android.content.Intent
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.core.content.ContextCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import br.com.rca.emptystate.model.EmptyState
 import br.com.rca.emptystate.ui.EmptyView
+import br.com.rca.sample.extension.compare
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -247,6 +249,26 @@ class EmptyViewTest {
         assertEquals(label, emptyView?.labelButton)
         assertEquals(label, emptyView?.test?.actionButton?.text)
         assertEquals(VISIBLE, emptyView?.test?.actionButton?.visibility)
+    }
+
+    @Test
+    fun testeImageResValorNull() {
+        emptyView?.test?.setupImageRes(null)
+
+        assertNull(emptyView?.test?.emptyImageView?.drawable)
+        assertEquals(GONE, emptyView?.test?.emptyImageView?.visibility)
+    }
+
+    @Test
+    fun testeDrawableDaImagemCorrespondeAImageResConfigurada() {
+        val resId = R.drawable.ic_search
+        val drawable = ContextCompat.getDrawable(context!!, resId)?.mutate()
+        emptyView?.test?.setupImageRes(resId)
+        emptyView?.test?.setupImageColor(null)
+
+        assertNotNull(drawable)
+        assertNotNull(emptyView?.test?.emptyImageView?.drawable)
+        assertTrue(drawable!!.compare(emptyView!!.test.emptyImageView.drawable))
     }
 
     // endregion
