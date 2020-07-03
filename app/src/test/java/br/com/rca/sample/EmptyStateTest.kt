@@ -93,5 +93,45 @@ class EmptyStateTest {
         assertNull(emptyState?.title)
     }
 
+    @Test
+    fun testeValidaMensagemConfiguradaCorretamenteComValorString() {
+        val message = "Valor da mensagem"
+        emptyState?.message = message
+
+        assertEquals(message, emptyState?.message)
+        assertNull(emptyState?.messageRes)
+    }
+
+    @Test
+    fun testeValidaMensagemConfiguradaCorretamenteComValorStringRes() {
+        val messageRes = R.string.lorem_ipsum_short
+        emptyState?.messageRes = messageRes
+
+        assertEquals(messageRes, emptyState?.messageRes)
+        assertNull(emptyState?.message)
+    }
+
+    @Test
+    fun testeValidaSeValorStringResetaValorResDaMensagem() {
+        val message = "Valor da mensagem"
+
+        emptyState?.messageRes = R.string.lorem_ipsum_short
+        emptyState?.message = message
+
+        assertEquals(message, emptyState?.message)
+        assertNull(emptyState?.messageRes)
+    }
+
+    @Test
+    fun testeValidaSeValorStringResResetaValorStringDaMensagem() {
+        val messageRes = R.string.lorem_ipsum_short
+
+        emptyState?.message = "Valor da mensagem"
+        emptyState?.messageRes = messageRes
+
+        assertEquals(messageRes, emptyState?.messageRes)
+        assertNull(emptyState?.message)
+    }
+
     // endregion
 }
