@@ -87,6 +87,62 @@ class EmptyViewTest {
         assertEquals(VISIBLE, emptyView?.visibility)
     }
 
+    @Test
+    fun testeTitleValorNull() {
+        emptyView?.test?.setupTitle(null)
+
+        assertNull(emptyView?.title)
+        assertEquals("", emptyView?.test?.titleTextView?.text)
+        assertEquals(GONE, emptyView?.test?.titleTextView?.visibility)
+    }
+
+    @Test
+    fun testeTitleValorVazio() {
+        emptyView?.test?.setupTitle("")
+
+        assertEquals("", emptyView?.title)
+        assertEquals("", emptyView?.test?.titleTextView?.text)
+        assertEquals(GONE, emptyView?.test?.titleTextView?.visibility)
+    }
+
+    @Test
+    fun testeValorCorrespondeAoConfiguradoNoTitle() {
+        val title = "Valor configurado"
+        emptyView?.test?.setupTitle(title)
+
+        assertEquals(title, emptyView?.title)
+        assertEquals(title, emptyView?.test?.titleTextView?.text)
+        assertEquals(VISIBLE, emptyView?.test?.titleTextView?.visibility)
+    }
+
+    @Test
+    fun testeValorCorrespondeAoConfiguradoNoTitleRes() {
+        val titleRes = R.string.app_name
+        emptyView?.test?.setupTitleRes(titleRes)
+
+        val title = context?.getString(titleRes)
+        assertEquals(title, emptyView?.title)
+        assertEquals(title, emptyView?.test?.titleTextView?.text)
+        assertEquals(VISIBLE, emptyView?.test?.titleTextView?.visibility)
+    }
+
+    @Test
+    fun testeTitleResAoSerConfiguradoDeveAlterarValorTitle() {
+        var title = "Valor inicial"
+        emptyView?.test?.setupTitle(title)
+
+        assertEquals(title, emptyView?.title)
+        assertEquals(title, emptyView?.test?.titleTextView?.text)
+        assertEquals(VISIBLE, emptyView?.test?.titleTextView?.visibility)
+
+        emptyView?.test?.setupTitleRes(R.string.app_name)
+
+        title = context?.getString(R.string.app_name) ?: ""
+        assertEquals(title, emptyView?.title)
+        assertEquals(title, emptyView?.test?.titleTextView?.text)
+        assertEquals(VISIBLE, emptyView?.test?.titleTextView?.visibility)
+    }
+
     // endregion
 
     // region Private Methods
