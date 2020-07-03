@@ -5,7 +5,10 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View.OnClickListener
 import android.widget.LinearLayout
+import androidx.annotation.StringRes
+import androidx.core.view.isVisible
 import br.com.rca.emptystate.R
+import br.com.rca.emptystate.model.EmptyState
 import kotlinx.android.synthetic.main.empty_view.view.*
 
 /**
@@ -16,6 +19,13 @@ class EmptyView : LinearLayout {
     // region Public Variables
 
     var actionHandler: (() -> Unit)? = null
+
+    var title: String? = null
+        set(value) {
+            field = value
+            titleTextView?.text = field
+            titleTextView?.isVisible = field?.isNotEmpty() ?: false
+        }
 
     // endregion
 
@@ -47,6 +57,14 @@ class EmptyView : LinearLayout {
 
     // endregion
 
+    // region Public Methods
+
+    fun setTitleRes(@StringRes resId: Int) {
+        title = context.getString(resId)
+    }
+
+    // endregion
+
     // region Private Methods
 
     private fun init() {
@@ -58,6 +76,14 @@ class EmptyView : LinearLayout {
 
     private fun setupListeners() {
         actionButton?.setOnClickListener(actionOnClickListener)
+    }
+
+    private fun setupTitle(emptyState: EmptyState) {
+        emptyState.titleRes?.let {
+            setTitleRes(it)
+        } ?: run {
+            title = emptyState.title
+        }
     }
 
     // endregion
