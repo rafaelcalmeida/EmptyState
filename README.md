@@ -1,3 +1,7 @@
+![](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
+![](https://img.shields.io/hexpm/l/plug.svg)
+![](https://img.shields.io/badge/version-1.0-blue.svg)
+
 # EmptyView para Android
 Permite implementar a exibição de estados vazios e de erro de forma simples e totalmente personalizável. Estados vazios podem exibir uma grande variedade de conteúdo.
 Por exemplo, eles podem incluir uma pesquisa que não retorna resultados ou uma falha na conexão ao iniciar a busca de dados na rede. Embora esses estados não sejam típicos,
