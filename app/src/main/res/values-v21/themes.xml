@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- region AppTheme -->
+
+    <style name="AppTheme.NoActionBar.Inverse">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <!-- endregion -->
+
+</resources>
