@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region Margin -->
+
+    <dimen name="margin_x_small">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">20dp</dimen>
+    <dimen name="margin_x_large">40dp</dimen>
+
+    <!-- endregion -->
+
+    <!-- region Misc -->
+
+    <dimen name="max_width">420dp</dimen>
+    <dimen name="max_width_large">600dp</dimen>
+
+    <!-- endregion -->
+
+</resources>

@@ -8,14 +8,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme.NoActionBar.Inverse">
+
+        <!-- region Activities -->
+
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.EmptyStateNotificationsActivity" />
+        <activity android:name=".ui.EmptyStateConnectionErrorActivity" />
+        <activity android:name=".ui.EmptyStateGenericErrorActivity" />
+        <activity android:name=".ui.EmptyStateSearchActivity" />
+
+        <!-- endregion -->
+
     </application>
 
 </manifest>
