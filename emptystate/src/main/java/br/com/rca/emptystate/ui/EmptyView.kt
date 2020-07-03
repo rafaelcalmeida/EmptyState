@@ -223,5 +223,13 @@ class EmptyView : LinearLayout {
         }
     }
 
+    private fun setupLabelButtonColor(emptyState: EmptyState) {
+        emptyState.labelButtonColorRes?.let {
+            setLabelButtonColorRes(it)
+        } ?: run {
+            labelButtonColor = emptyState.labelButtonColor
+        }
+    }
+
     // endregion
 }
