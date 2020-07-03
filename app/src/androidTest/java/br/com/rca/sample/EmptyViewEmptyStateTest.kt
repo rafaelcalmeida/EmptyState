@@ -473,6 +473,36 @@ class EmptyViewEmptyStateTest {
         assertTrue(actionCalled)
     }
 
+    @Test
+    fun testeEmptyViewDeveFicarOcultaAoPassarIsVisibleFalse() {
+        emptyState?.isVisible = false
+
+        emptyView?.test?.setupEmptyState(emptyState)
+        assertEquals(GONE, emptyView?.visibility)
+    }
+
+    @Test
+    fun testeEmptyViewDeveFicarVisivelAoPassarIsVisibleTrue() {
+        emptyState?.isVisible = false
+
+        emptyView?.test?.setupEmptyState(emptyState)
+        assertEquals(GONE, emptyView?.visibility)
+
+        emptyState?.isVisible = true
+
+        emptyView?.test?.setupEmptyState(emptyState)
+        assertEquals(VISIBLE, emptyView?.visibility)
+    }
+
+    @Test
+    fun testeEmptyViewDeveFicarOcultaAoPassarEmptyStateNull() {
+        emptyView?.test?.setupEmptyState(emptyState)
+        assertEquals(VISIBLE, emptyView?.visibility)
+
+        emptyView?.test?.setupEmptyState(null)
+        assertEquals(GONE, emptyView?.visibility)
+    }
+
     // endregion
 
     // region Private Methods
