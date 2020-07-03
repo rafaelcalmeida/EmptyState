@@ -235,5 +235,14 @@ class EmptyView : LinearLayout {
         actionHandler = emptyState.actionHandler
     }
 
+    private fun setupEmptyImage(emptyState: EmptyState) {
+        setImageRes(emptyState.imageRes)
+        emptyState.imageColorRes?.let {
+            setImageColorRes(it)
+        } ?: run {
+            imageColor = emptyState.imageColor
+        }
+    }
+
     // endregion
 }
