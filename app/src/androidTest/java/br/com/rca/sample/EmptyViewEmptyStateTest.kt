@@ -127,6 +127,59 @@ class EmptyViewEmptyStateTest {
         assertEquals(VISIBLE, emptyView?.test?.titleTextView?.visibility)
     }
 
+    @Test
+    fun testeMessageValorNull() {
+        emptyState?.message = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertNull(emptyView?.message)
+        assertEquals("", emptyView?.test?.messageTextView?.text)
+        assertEquals(GONE, emptyView?.test?.messageTextView?.visibility)
+    }
+
+    @Test
+    fun testeMessageValorVazio() {
+        emptyState?.message = ""
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals("", emptyView?.message)
+        assertEquals("", emptyView?.test?.messageTextView?.text)
+        assertEquals(GONE, emptyView?.test?.messageTextView?.visibility)
+    }
+
+    @Test
+    fun testeMessageConfiguradoCorretamente() {
+        val message = "Message teste"
+        emptyState?.message = message
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(message, emptyView?.message)
+        assertEquals(message, emptyView?.test?.messageTextView?.text)
+        assertEquals(VISIBLE, emptyView?.test?.messageTextView?.visibility)
+    }
+
+    @Test
+    fun testeMessageResValorNull() {
+        emptyState?.messageRes = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertNull(emptyView?.message)
+        assertEquals("", emptyView?.test?.messageTextView?.text)
+        assertEquals(GONE, emptyView?.test?.messageTextView?.visibility)
+    }
+
+    @Test
+    fun testeMessageResConfiguradoCorretamente() {
+        val messageRes = R.string.lorem_ipsum_medium
+        emptyState?.messageRes = messageRes
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        val message = context?.getString(messageRes)
+        assertEquals(message, emptyView?.message)
+        assertEquals(message, emptyView?.test?.messageTextView?.text)
+        assertEquals(VISIBLE, emptyView?.test?.messageTextView?.visibility)
+    }
+
     // endregion
 
     // region Private Methods
