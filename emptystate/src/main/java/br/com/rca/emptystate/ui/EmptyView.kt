@@ -64,6 +64,15 @@ class EmptyView : LinearLayout {
             }
         }
 
+    @ColorInt
+    var messageColor: Int? = null
+        set(value) {
+            field = value
+            field?.let {
+                messageTextView.setTextColor(it)
+            }
+        }
+
     // endregion
 
     // region Private Variables
@@ -124,6 +133,10 @@ class EmptyView : LinearLayout {
 
     fun setTitleColorRes(@ColorRes resId: Int?) {
         titleColor = resId?.let { ContextCompat.getColor(context, it) }
+    }
+
+    fun setMessageColorRes(@ColorRes resId: Int?) {
+        messageColor = resId?.let { ContextCompat.getColor(context, it) }
     }
 
     // endregion
