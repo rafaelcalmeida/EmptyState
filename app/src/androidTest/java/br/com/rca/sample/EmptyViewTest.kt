@@ -78,6 +78,15 @@ class EmptyViewTest {
         assertEquals(GONE, emptyView?.visibility)
     }
 
+    @Test
+    fun testeEmptyStateCorrespondeAoConfigurado() {
+        val emptyState = EmptyState()
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(emptyState, emptyView?.emptyState)
+        assertEquals(VISIBLE, emptyView?.visibility)
+    }
+
     // endregion
 
     // region Private Methods
