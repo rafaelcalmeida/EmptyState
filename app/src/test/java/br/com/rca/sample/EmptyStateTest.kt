@@ -4,8 +4,7 @@ import android.graphics.Color
 import br.com.rca.emptystate.R
 import br.com.rca.emptystate.model.EmptyState
 import org.junit.After
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
@@ -344,6 +343,15 @@ class EmptyStateTest {
 
         assertEquals(colorRes, emptyState?.messageColorRes)
         assertNull(emptyState?.messageColor)
+    }
+
+    @Test
+    fun testeValidaVisibilidadeEmptyStateRefleteValorConfigurado() {
+        assertTrue(emptyState!!.isVisible)
+
+        emptyState?.isVisible = false
+
+        assertFalse(emptyState!!.isVisible)
     }
 
     // endregion
