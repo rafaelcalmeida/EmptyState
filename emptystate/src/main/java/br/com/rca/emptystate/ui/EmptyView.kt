@@ -207,5 +207,13 @@ class EmptyView : LinearLayout {
         }
     }
 
+    private fun setupMessageColor(emptyState: EmptyState) {
+        emptyState.messageColorRes?.let {
+            setMessageColorRes(it)
+        } ?: run {
+            messageColor = emptyState.messageColor
+        }
+    }
+
     // endregion
 }
