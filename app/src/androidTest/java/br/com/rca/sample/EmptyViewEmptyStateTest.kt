@@ -320,6 +320,53 @@ class EmptyViewEmptyStateTest {
         assertTrue(drawable.compare(emptyView!!.test.emptyImageView.drawable))
     }
 
+    @Test
+    fun testeTitleColorConfiguradoValorNull() {
+        val color = emptyView?.test?.titleTextView?.currentTextColor
+
+        emptyState?.title = "Title"
+        emptyState?.titleColor = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.titleTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeTitleColorConfiguradaCorretamente() {
+        val color = Color.GREEN
+
+        emptyState?.title = "Title"
+        emptyState?.titleColor = color
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.titleTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeTitleColorResConfiguradoValorNull() {
+        val color = emptyView?.test?.titleTextView?.currentTextColor
+
+        emptyState?.title = "Title"
+        emptyState?.titleColorRes = null
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(color, emptyView?.test?.titleTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeTitleColorResConfiguradaCorretamente() {
+        val colorRes = android.R.color.holo_red_dark
+
+        emptyState?.title = "Title"
+        emptyState?.titleColorRes = colorRes
+        emptyView?.test?.setupEmptyState(emptyState)
+
+        assertEquals(
+            ContextCompat.getColor(context!!, colorRes),
+            emptyView?.test?.titleTextView?.currentTextColor
+        )
+    }
+
     // endregion
 
     // region Private Methods
