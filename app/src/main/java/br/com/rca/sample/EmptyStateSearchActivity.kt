@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import br.com.rca.emptystate.model.EmptyState
 import kotlinx.android.synthetic.main.activity_empty_state.*
+import kotlinx.android.synthetic.main.widget_toolbar_inverse.*
 
 /**
  * Created by Rafael C. Almeida on 14/04/20.
@@ -49,6 +50,7 @@ class EmptyStateSearchActivity : BaseActivity() {
     // region Private Methods
 
     private fun setupUI() {
+        setSupportActionBar(toolbar);
         title = "EmptyState"
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
