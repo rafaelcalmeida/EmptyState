@@ -306,5 +306,45 @@ class EmptyStateTest {
         assertNull(emptyState?.titleColor)
     }
 
+    @Test
+    fun testeValidaCorMensagemConfiguradaCorretamenteComValorColor() {
+        val color = Color.BLACK
+        emptyState?.messageColor = color
+
+        assertEquals(color, emptyState?.messageColor)
+        assertNull(emptyState?.messageColorRes)
+    }
+
+    @Test
+    fun testeValidaCorMensagemConfiguradaCorretamenteComValorColorRes() {
+        val colorRes = android.R.color.darker_gray
+        emptyState?.messageColorRes = colorRes
+
+        assertEquals(colorRes, emptyState?.messageColorRes)
+        assertNull(emptyState?.messageColor)
+    }
+
+    @Test
+    fun testeValidaSeValorColorResetaValorColorResDaMensagem() {
+        val color = Color.RED
+
+        emptyState?.messageColorRes = android.R.color.darker_gray
+        emptyState?.messageColor = color
+
+        assertEquals(color, emptyState?.messageColor)
+        assertNull(emptyState?.messageColorRes)
+    }
+
+    @Test
+    fun testeValidaSeValorColorResResetaValorColorDaMensagem() {
+        val colorRes = android.R.color.darker_gray
+
+        emptyState?.messageColor = Color.RED
+        emptyState?.messageColorRes = colorRes
+
+        assertEquals(colorRes, emptyState?.messageColorRes)
+        assertNull(emptyState?.messageColor)
+    }
+
     // endregion
 }
