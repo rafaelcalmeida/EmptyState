@@ -1,28 +1,25 @@
-package br.com.rca.sample
+package br.com.rca.sample.ui
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import br.com.rca.emptystate.model.EmptyState
+import br.com.rca.sample.R
+import br.com.rca.sample.ui.custom.BaseActivity
 import kotlinx.android.synthetic.main.activity_empty_state.*
 import kotlinx.android.synthetic.main.widget_toolbar_inverse.*
 
 /**
- * Created by Rafael C. Almeida on 13/04/20.
+ * Created by Rafael C. Almeida on 14/04/20.
  */
-class EmptyStateGenericErrorActivity : BaseActivity() {
+class EmptyStateSearchActivity : BaseActivity() {
 
     // region Private Variables
 
     private val emptyState: EmptyState by lazy {
         val emptyState = EmptyState()
-        emptyState.imageRes = R.drawable.ic_error
-        emptyState.title = "Internal server error 500."
-        emptyState.message = "The operation couldn't be completed. Try again later."
-        emptyState.labelButton = "Retry"
-        emptyState.actionHandler = {
-            fetchData()
-        }
+        emptyState.imageRes = R.drawable.ic_search
+        emptyState.title = "No results found."
+        emptyState.message = "we can't find any item matching your search."
 
         emptyState
     }
@@ -61,14 +58,7 @@ class EmptyStateGenericErrorActivity : BaseActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         emptyView?.emptyState = emptyState
-    }
-
-    private fun fetchData() {
-        isLoading = true
-        Handler(mainLooper).postDelayed({
-            emptyView?.emptyState = emptyState
-            isLoading = false
-        }, 1000)
+        isLoading = false
     }
 
     // endregion

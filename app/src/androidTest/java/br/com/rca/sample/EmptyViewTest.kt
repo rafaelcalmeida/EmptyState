@@ -15,6 +15,7 @@ import androidx.test.rule.ActivityTestRule
 import br.com.rca.emptystate.model.EmptyState
 import br.com.rca.emptystate.ui.EmptyView
 import br.com.rca.sample.extension.compare
+import br.com.rca.sample.ui.EmptyStateSearchActivity
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before

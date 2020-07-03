@@ -1,4 +1,4 @@
-package br.com.rca.sample
+package br.com.rca.sample.ui.custom
 
 import androidx.appcompat.app.AppCompatActivity
 

@@ -1,8 +1,10 @@
-package br.com.rca.sample
+package br.com.rca.sample.ui
 
 import android.os.Bundle
 import android.view.View
 import br.com.rca.emptystate.model.EmptyState
+import br.com.rca.sample.R
+import br.com.rca.sample.ui.custom.BaseActivity
 import kotlinx.android.synthetic.main.activity_empty_state.*
 import kotlinx.android.synthetic.main.widget_toolbar_inverse.*
 

@@ -12,7 +12,7 @@
 
         <!-- region Activities -->
 
-        <activity android:name=".EmptyStateSearchActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,9 +20,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="EmptyStateNotificationsActivity" />
-        <activity android:name="EmptyStateConnectionErrorActivity" />
-        <activity android:name=".EmptyStateConnectionErrorActivity" />
+        <activity android:name=".ui.EmptyStateNotificationsActivity" />
+        <activity android:name=".ui.EmptyStateConnectionErrorActivity" />
+        <activity android:name=".ui.EmptyStateGenericErrorActivity" />
+        <activity android:name=".ui.EmptyStateSearchActivity" />
 
         <!-- endregion -->
 
