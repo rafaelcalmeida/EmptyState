@@ -266,5 +266,45 @@ class EmptyStateTest {
         assertNull(emptyState?.labelButtonColor)
     }
 
+    @Test
+    fun testeValidaCorTituloConfiguradaCorretamenteComValorColor() {
+        val color = Color.BLACK
+        emptyState?.titleColor = color
+
+        assertEquals(color, emptyState?.titleColor)
+        assertNull(emptyState?.titleColorRes)
+    }
+
+    @Test
+    fun testeValidaCorTituloConfiguradaCorretamenteComValorColorRes() {
+        val colorRes = android.R.color.darker_gray
+        emptyState?.titleColorRes = colorRes
+
+        assertEquals(colorRes, emptyState?.titleColorRes)
+        assertNull(emptyState?.titleColor)
+    }
+
+    @Test
+    fun testeValidaSeValorColorResetaValorColorResDoTitulo() {
+        val color = Color.RED
+
+        emptyState?.titleColorRes = android.R.color.darker_gray
+        emptyState?.titleColor = color
+
+        assertEquals(color, emptyState?.titleColor)
+        assertNull(emptyState?.titleColorRes)
+    }
+
+    @Test
+    fun testeValidaSeValorColorResResetaValorColorDoTitulo() {
+        val colorRes = android.R.color.darker_gray
+
+        emptyState?.titleColor = Color.RED
+        emptyState?.titleColorRes = colorRes
+
+        assertEquals(colorRes, emptyState?.titleColorRes)
+        assertNull(emptyState?.titleColor)
+    }
+
     // endregion
 }
