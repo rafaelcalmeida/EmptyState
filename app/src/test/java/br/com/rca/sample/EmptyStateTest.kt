@@ -1,5 +1,6 @@
 package br.com.rca.sample
 
+import android.graphics.Color
 import br.com.rca.emptystate.R
 import br.com.rca.emptystate.model.EmptyState
 import org.junit.After
@@ -183,6 +184,46 @@ class EmptyStateTest {
 
         emptyState?.imageRes = null
         assertNull(emptyState?.imageRes)
+    }
+
+    @Test
+    fun testeValidaCorImagemConfiguradaCorretamenteComValorColor() {
+        val color = Color.BLACK
+        emptyState?.imageColor = color
+
+        assertEquals(color, emptyState?.imageColor)
+        assertNull(emptyState?.imageColorRes)
+    }
+
+    @Test
+    fun testeValidaCorImagemConfiguradaCorretamenteComValorColorRes() {
+        val colorRes = android.R.color.darker_gray
+        emptyState?.imageColorRes = colorRes
+
+        assertEquals(colorRes, emptyState?.imageColorRes)
+        assertNull(emptyState?.imageColor)
+    }
+
+    @Test
+    fun testeValidaSeValorColorResetaValorColorResDaImagem() {
+        val color = Color.RED
+
+        emptyState?.imageColorRes = android.R.color.darker_gray
+        emptyState?.imageColor = color
+
+        assertEquals(color, emptyState?.imageColor)
+        assertNull(emptyState?.imageColorRes)
+    }
+
+    @Test
+    fun testeValidaValorColorResResetaValorColorDaImagem() {
+        val colorRes = android.R.color.darker_gray
+
+        emptyState?.imageColor = Color.RED
+        emptyState?.imageColorRes = colorRes
+
+        assertEquals(colorRes, emptyState?.imageColorRes)
+        assertNull(emptyState?.imageColor)
     }
 
     // endregion
