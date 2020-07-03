@@ -27,6 +27,7 @@ class EmptyView : LinearLayout {
     var emptyState: EmptyState? = null
         set(value) {
             field = value
+            updateUI()
         }
 
     var title: String? = null
@@ -135,10 +136,10 @@ class EmptyView : LinearLayout {
     fun setImageRes(@DrawableRes resId: Int?) {
         resId?.let {
             imageView?.setImageResource(it)
-            imageView?.visibility = VISIBLE
+            imageView?.isVisible = true
         } ?: run {
             imageView?.setImageDrawable(null)
-            imageView?.visibility = GONE
+            imageView?.isVisible = false
         }
     }
 
@@ -163,9 +164,9 @@ class EmptyView : LinearLayout {
         titleTextView?.text = ""
         messageTextView?.text = ""
         actionButton?.text = ""
-        actionButton?.visibility = VISIBLE
+        actionButton?.isVisible = true
         imageView?.setImageDrawable(null)
-        imageView?.visibility = VISIBLE
+        imageView?.isVisible = true
     }
 
     // endregion
@@ -181,6 +182,23 @@ class EmptyView : LinearLayout {
 
     private fun setupListeners() {
         actionButton?.setOnClickListener(actionOnClickListener)
+    }
+
+    private fun updateUI() {
+        emptyState?.let {
+            isVisible = it.isVisible
+            setupTitle(it)
+            setupTitleColor(it)
+            setupMessage(it)
+            setupMessageColor(it)
+            setupLabelButton(it)
+            setupLabelButtonColor(it)
+            setupHandlerButton(it)
+            setupEmptyImage(it)
+        } ?: run {
+            isVisible = false
+            reset()
+        }
     }
 
     private fun setupTitle(emptyState: EmptyState) {
