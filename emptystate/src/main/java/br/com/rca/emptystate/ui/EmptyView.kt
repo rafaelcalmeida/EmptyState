@@ -191,5 +191,13 @@ class EmptyView : LinearLayout {
         }
     }
 
+    private fun setupTitleColor(emptyState: EmptyState) {
+        emptyState.titleColorRes?.let {
+            setTitleColorRes(it)
+        } ?: run {
+            titleColor = emptyState.titleColor
+        }
+    }
+
     // endregion
 }
