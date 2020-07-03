@@ -367,6 +367,45 @@ class EmptyViewTest {
         )
     }
 
+    @Test
+    fun testeMessageColorConfiguradoValorNull() {
+        val color = emptyView?.test?.messageTextView?.currentTextColor
+        emptyView?.test?.setupMessage("Message")
+        emptyView?.test?.setupMessageColor(null)
+
+        assertEquals(color, emptyView?.test?.messageTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeMessageColorConfiguradaCorretamente() {
+        val color = Color.GREEN
+        emptyView?.test?.setupMessage("Message")
+        emptyView?.test?.setupMessageColor(color)
+
+        assertEquals(color, emptyView?.test?.messageTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeMessageColorResConfiguradoValorNull() {
+        val color = emptyView?.test?.messageTextView?.currentTextColor
+        emptyView?.test?.setupMessage("Message")
+        emptyView?.test?.setupMessageColorRes(null)
+
+        assertEquals(color, emptyView?.test?.messageTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeMessageColorResConfiguradaCorretamente() {
+        val colorRes = android.R.color.holo_red_dark
+        emptyView?.test?.setupMessage("Message")
+        emptyView?.test?.setupMessageColorRes(colorRes)
+
+        assertEquals(
+            ContextCompat.getColor(context!!, colorRes),
+            emptyView?.test?.messageTextView?.currentTextColor
+        )
+    }
+
     // endregion
 
     // region Private Methods
