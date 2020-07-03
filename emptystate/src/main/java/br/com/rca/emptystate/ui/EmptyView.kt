@@ -199,5 +199,13 @@ class EmptyView : LinearLayout {
         }
     }
 
+    private fun setupMessage(emptyState: EmptyState) {
+        emptyState.messageRes?.let {
+            setMessageRes(it)
+        } ?: run {
+            message = emptyState.message
+        }
+    }
+
     // endregion
 }
