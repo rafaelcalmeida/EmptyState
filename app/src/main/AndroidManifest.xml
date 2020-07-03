@@ -21,6 +21,7 @@
         </activity>
 
         <activity android:name="EmptyStateNotificationsActivity" />
+        <activity android:name="EmptyStateConnectionErrorActivity" />
 
         <!-- endregion -->
 
