@@ -174,5 +174,16 @@ class EmptyStateTest {
         assertNull(emptyState?.labelButton)
     }
 
+    @Test
+    fun testeValidaSeImagemConfiguradaCorretamente() {
+        val imageRes = android.R.drawable.arrow_up_float
+
+        emptyState?.imageRes = imageRes
+        assertEquals(imageRes, emptyState?.imageRes)
+
+        emptyState?.imageRes = null
+        assertNull(emptyState?.imageRes)
+    }
+
     // endregion
 }
