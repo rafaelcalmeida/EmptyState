@@ -2,10 +2,14 @@ package br.com.rca.sample
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import br.com.rca.emptystate.model.EmptyState
@@ -269,6 +273,98 @@ class EmptyViewTest {
         assertNotNull(drawable)
         assertNotNull(emptyView?.test?.emptyImageView?.drawable)
         assertTrue(drawable!!.compare(emptyView!!.test.emptyImageView.drawable))
+    }
+
+    @Test
+    fun testeImageColorConfiguradaValorNull() {
+        emptyView?.test?.setupImageRes(R.drawable.ic_search)
+        emptyView?.test?.setupImageColor(null)
+
+        assertNotNull(emptyView?.test?.emptyImageView?.drawable)
+        assertNull(emptyView?.test?.emptyImageView?.colorFilter)
+    }
+
+    @Test
+    fun testeImageColorConfiguradaCorretamente() {
+        val color = Color.GREEN
+        emptyView?.test?.setupImageRes(R.drawable.ic_search)
+        emptyView?.test?.setupImageColor(color)
+
+        assertNotNull(emptyView?.test?.emptyImageView?.drawable)
+        assertNotNull(emptyView?.test?.emptyImageView?.colorFilter)
+        assertTrue(
+            emptyView?.test?.emptyImageView?.colorFilter == PorterDuffColorFilter(
+                color,
+                PorterDuff.Mode.SRC_ATOP
+            )
+        )
+    }
+
+    @Test
+    fun testeImageColorResConfiguradaValorNull() {
+        emptyView?.test?.setupImageRes(R.drawable.ic_search)
+        emptyView?.test?.setupImageColorRes(null)
+
+        assertNotNull(emptyView?.test?.emptyImageView?.drawable)
+        assertNull(emptyView?.test?.emptyImageView?.colorFilter)
+    }
+
+    @Test
+    fun testeImageColorResConfiguradaCorretamente() {
+        val colorRes = R.color.colorPrimary
+        emptyView?.test?.setupImageRes(R.drawable.ic_search)
+        emptyView?.test?.setupImageColorRes(colorRes)
+
+        val drawable = DrawableCompat.wrap(
+            ContextCompat.getDrawable(
+                context!!,
+                R.drawable.ic_search
+            )?.mutate()!!
+        )
+        DrawableCompat.setTint(drawable, ContextCompat.getColor(context!!, colorRes))
+
+        assertNotNull(emptyView?.test?.emptyImageView?.drawable)
+        assertNotNull(emptyView?.test?.emptyImageView?.colorFilter)
+        assertTrue(drawable.compare(emptyView!!.test.emptyImageView.drawable))
+    }
+
+    @Test
+    fun testeTitleColorConfiguradoValorNull() {
+        val color = emptyView?.test?.titleTextView?.currentTextColor
+        emptyView?.test?.setupTitle("Title")
+        emptyView?.test?.setupTitleColor(null)
+
+        assertEquals(color, emptyView?.test?.titleTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeTitleColorConfiguradaCorretamente() {
+        val color = Color.GREEN
+        emptyView?.test?.setupTitle("Title")
+        emptyView?.test?.setupTitleColor(color)
+
+        assertEquals(color, emptyView?.test?.titleTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeTitleColorResConfiguradoValorNull() {
+        val color = emptyView?.test?.titleTextView?.currentTextColor
+        emptyView?.test?.setupTitle("Title")
+        emptyView?.test?.setupTitleColorRes(null)
+
+        assertEquals(color, emptyView?.test?.titleTextView?.currentTextColor)
+    }
+
+    @Test
+    fun testeTitleColorResConfiguradaCorretamente() {
+        val colorRes = android.R.color.holo_red_dark
+        emptyView?.test?.setupTitle("Title")
+        emptyView?.test?.setupTitleColorRes(colorRes)
+
+        assertEquals(
+            ContextCompat.getColor(context!!, colorRes),
+            emptyView?.test?.titleTextView?.currentTextColor
+        )
     }
 
     // endregion
