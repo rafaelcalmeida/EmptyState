@@ -1,10 +1,10 @@
 package br.com.rca.sample
 
-import android.graphics.Color
 import br.com.rca.emptystate.R
 import br.com.rca.emptystate.model.EmptyState
 import org.junit.After
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 
@@ -131,6 +131,47 @@ class EmptyStateTest {
 
         assertEquals(messageRes, emptyState?.messageRes)
         assertNull(emptyState?.message)
+    }
+
+    @Test
+    fun testeValidaTextoBotaoConfiguradoCorretamenteComValorString() {
+        val label = "Texto do botão"
+        emptyState?.labelButton = label
+
+        assertEquals(label, emptyState?.labelButton)
+        assertNull(emptyState?.labelButtonRes)
+    }
+
+    @Test
+    fun testeValidaTextoBotaoConfiguradoCorretamenteComValorStringRes() {
+        val labelRes = R.string.lorem_ipsum_short
+        emptyState?.labelButtonRes = labelRes
+
+        assertEquals(labelRes, emptyState?.labelButtonRes)
+        assertNull(emptyState?.labelButton)
+    }
+
+    @Test
+    fun testeValidaSeValorStringResetaValorResDoBotao() {
+        val label = "Texto do botão"
+
+        emptyState?.labelButtonRes =
+            R.string.lorem_ipsum_short
+        emptyState?.labelButton = label
+
+        assertEquals(label, emptyState?.labelButton)
+        assertNull(emptyState?.labelButtonRes)
+    }
+
+    @Test
+    fun testeValidaSeValorStringResResetaValorStringDoBotao() {
+        val labelRes = R.string.lorem_ipsum_short
+
+        emptyState?.labelButton = "Texto do botão"
+        emptyState?.labelButtonRes = labelRes
+
+        assertEquals(labelRes, emptyState?.labelButtonRes)
+        assertNull(emptyState?.labelButton)
     }
 
     // endregion
