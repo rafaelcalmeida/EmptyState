@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View.OnClickListener
 import android.widget.LinearLayout
+import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import br.com.rca.emptystate.R
@@ -82,6 +84,16 @@ class EmptyView : LinearLayout {
 
     fun setLabelButtonRes(@StringRes resId: Int) {
         labelButton = context.getString(resId)
+    }
+
+    fun setImageRes(@DrawableRes resId: Int?) {
+        resId?.let {
+            imageView?.setImageResource(it)
+            imageView?.visibility = VISIBLE
+        } ?: run {
+            imageView?.setImageDrawable(null)
+            imageView?.visibility = GONE
+        }
     }
 
     // endregion
