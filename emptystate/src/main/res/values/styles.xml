@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region App -->
+
+    <style name="App" />
+
+    <style name="App.Widget" />
+
+    <!-- endregion -->
+
+    <!-- region Text -->
+
+    <style name="App.TextHeadline6" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="App.TextSubtitle1" parent="@style/TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="App.TextSubtitle1.Secondary">
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <!-- endregion -->
+
+    <!-- region Button -->
+
+    <style name="App.Widget.TextAppearanceButton" parent="@style/TextAppearance.MaterialComponents.Button" />
+
+    <style name="App.Widget.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/App.Widget.TextAppearanceButton</item>
+    </style>
+
+    <style name="App.Widget.Button.OutlinedButton.Primary">
+        <item name="android:textColor">@drawable/text_primary_background</item>
+    </style>
+
+    <!-- endregion -->
+
+    <!-- region ConstraintLayout -->
+
+    <style name="App.ConstraintLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="App.ConstraintLayout.MaxWidthLarge">
+        <item name="android:maxWidth">@dimen/max_width_large</item>
+    </style>
+
+    <!-- endregion -->
+
+    <!-- region ScrollView -->
+
+    <style name="App.Widget.ScrollView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:clickable">true</item>
+        <item name="android:fillViewport">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- endregion -->
+
+</resources>
