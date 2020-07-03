@@ -70,6 +70,14 @@ class EmptyViewTest {
         actionCalled = false
     }
 
+    @Test
+    fun testeEmptyStateNull() {
+        emptyView?.test?.setupEmptyState(null)
+
+        assertNull(emptyView?.emptyState)
+        assertEquals(GONE, emptyView?.visibility)
+    }
+
     // endregion
 
     // region Private Methods
