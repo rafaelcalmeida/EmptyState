@@ -215,5 +215,13 @@ class EmptyView : LinearLayout {
         }
     }
 
+    private fun setupLabelButton(emptyState: EmptyState) {
+        emptyState.labelButtonRes?.let {
+            setLabelButtonRes(it)
+        } ?: run {
+            labelButton = emptyState.labelButton
+        }
+    }
+
     // endregion
 }
