@@ -231,5 +231,9 @@ class EmptyView : LinearLayout {
         }
     }
 
+    private fun setupHandlerButton(emptyState: EmptyState) {
+        actionHandler = emptyState.actionHandler
+    }
+
     // endregion
 }
