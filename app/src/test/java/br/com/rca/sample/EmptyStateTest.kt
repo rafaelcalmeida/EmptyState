@@ -53,5 +53,45 @@ class EmptyStateTest {
         assertNull(emptyState?.imageColorRes)
     }
 
+    @Test
+    fun testeValidaTituloConfiguradoCorretamenteComValorString() {
+        val title = "Valor do título"
+        emptyState?.title = title
+
+        assertEquals(title, emptyState?.title)
+        assertNull(emptyState?.titleRes)
+    }
+
+    @Test
+    fun testeValidaTituloConfiguradoCorretamenteComValorStringRes() {
+        val titleRes = R.string.lorem_ipsum_short
+        emptyState?.titleRes = titleRes
+
+        assertEquals(titleRes, emptyState?.titleRes)
+        assertNull(emptyState?.title)
+    }
+
+    @Test
+    fun testeValidaSeValorStringConfiguradoResetaValorResDoTitulo() {
+        val title = "Valor do título"
+
+        emptyState?.titleRes = R.string.lorem_ipsum_short
+        emptyState?.title = title
+
+        assertEquals(title, emptyState?.title)
+        assertNull(emptyState?.titleRes)
+    }
+
+    @Test
+    fun testeValidaSeValorStringResResetaValorStringDoTitulo() {
+        val titleRes = R.string.lorem_ipsum_short
+
+        emptyState?.title = "Valor do título"
+        emptyState?.titleRes = titleRes
+
+        assertEquals(titleRes, emptyState?.titleRes)
+        assertNull(emptyState?.title)
+    }
+
     // endregion
 }
