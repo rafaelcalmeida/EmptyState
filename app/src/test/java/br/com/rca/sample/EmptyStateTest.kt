@@ -354,5 +354,14 @@ class EmptyStateTest {
         assertFalse(emptyState!!.isVisible)
     }
 
+    @Test
+    fun testeValidaHandlerRefleteValorConfigurado() {
+        val handler: (() -> Unit) = {}
+        emptyState?.actionHandler = handler
+
+        assertNotNull(emptyState?.actionHandler)
+        assertEquals(handler, emptyState!!.actionHandler)
+    }
+
     // endregion
 }
