@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
 ![](https://img.shields.io/hexpm/l/plug.svg)
-![](https://img.shields.io/badge/version-1.0-blue.svg)
+![](https://img.shields.io/badge/version-1.3-blue.svg)
 
 # EmptyView para Android
 Permite implementar a exibição de estados vazios e de erro de forma simples e totalmente personalizável. Estados vazios podem exibir uma grande variedade de conteúdo.
@@ -25,7 +25,7 @@ allprojects {
 
 ```Gradle
 dependencies {
-    implementation 'com.github.rafaelcalmeida:emptystate:1.0'
+    implementation 'com.github.rafaelcalmeida:emptystate:1.3'
 }
 ```
 
